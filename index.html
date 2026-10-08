@@ -10,7 +10,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Fontech">
-    <link rel="apple-touch-icon" href="https://i.pravatar.cc/192?img=11">
+    <!-- Using the provided logo as the Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="https://i.ibb.co/wZxqW4Pz/file-000000006158821196093989ec40bf51.png">
 
     <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -94,6 +95,38 @@
         }
         .phone-frame.logged-in .notch { display: block; }
 
+        /* ================= LOGO STYLING ================= */
+        .logo-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: var(--white);
+            padding: 10px;
+        }
+        .logo-img-small {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: var(--white);
+            padding: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 2px solid var(--white);
+            cursor: pointer;
+        }
+        .logo-img-auth {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: var(--white);
+            padding: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
         /* ================= PWA INSTALL PROMPT ================= */
         .pwa-install-banner {
             position: absolute;
@@ -141,8 +174,7 @@
         }
         .auth-container::-webkit-scrollbar { display: none; }
 
-        .auth-header { text-align: center; margin-bottom: 30px; margin-top: 20px; }
-        .auth-header i { font-size: 40px; margin-bottom: 10px; color: var(--light-purple); }
+        .auth-header { text-align: center; margin-bottom: 30px; margin-top: 10px; display: flex; flex-direction: column; align-items: center;}
         .auth-header h2 { font-size: 26px; font-weight: 600; }
         .auth-header p { font-size: 13px; opacity: 0.8; margin-top: 5px; }
 
@@ -183,7 +215,6 @@
         header { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; margin-bottom: 25px; }
         .greeting h1 { font-size: 22px; font-weight: 600; color: var(--text-dark); }
         .header-actions { display: flex; align-items: center; gap: 15px; }
-        .avatar { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); cursor: pointer;}
         .settings-btn { background: none; border: none; font-size: 22px; color: var(--text-dark); cursor: pointer; transition: transform 0.3s; }
         .settings-btn:active { transform: rotate(90deg); }
 
@@ -238,8 +269,7 @@
         .goal-subtext { font-size: 11px; color: var(--text-grey); display: flex; justify-content: space-between; }
 
         .profile-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 30px; }
-        .profile-header img { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 10px; border: 3px solid var(--primary-purple); }
-        .profile-header h2 { font-size: 20px; color: var(--text-dark); }
+        .profile-header h2 { font-size: 20px; color: var(--text-dark); margin-top: 10px; }
         .profile-header p { font-size: 13px; color: var(--text-grey); }
         .settings-group { background: var(--white); border-radius: 20px; padding: 10px 20px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
         .setting-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
@@ -287,7 +317,7 @@
 
         /* Animations */
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
     </style>
 </head>
 <body>
@@ -298,7 +328,7 @@
 
         <!-- PWA Install Banner -->
         <div class="pwa-install-banner" id="pwaBanner">
-            <img src="https://i.pravatar.cc/192?img=11" alt="App Icon">
+            <img src="https://i.ibb.co/wZxqW4Pz/file-000000006158821196093989ec40bf51.png" alt="App Icon">
             <div>
                 <h4>Install Fontech</h4>
                 <p>Add to home screen for the best experience</p>
@@ -308,7 +338,7 @@
 
         <!-- ================= SPLASH SCREEN ================= -->
         <div class="screen" id="screen-splash" style="background: var(--auth-bg); justify-content: center; align-items: center; z-index: 500;">
-            <i class="fas fa-chart-pie" style="font-size: 60px; color: var(--white); margin-bottom: 20px; animation: pulse 1.5s infinite;"></i>
+            <img src="https://i.ibb.co/wZxqW4Pz/file-000000006158821196093989ec40bf51.png" alt="Fontech Logo" class="logo-img" style="animation: pulse 1.5s infinite; margin-bottom: 20px;">
             <h1 style="color: var(--white); font-size: 28px; letter-spacing: 2px;">FONTECH</h1>
             <div class="spinner" style="margin-top: 30px; border: 3px solid rgba(255,255,255,0.3); border-top: 3px solid var(--white); border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite;"></div>
         </div>
@@ -317,7 +347,7 @@
         <div class="screen hidden" id="screen-login">
             <div class="auth-container">
                 <div class="auth-header">
-                    <i class="fas fa-shield-alt"></i>
+                    <img src="https://i.ibb.co/wZxqW4Pz/file-000000006158821196093989ec40bf51.png" alt="Fontech Logo" class="logo-img-auth">
                     <h2>Welcome Back</h2>
                     <p>Log in to access your portfolio</p>
                 </div>
@@ -346,7 +376,7 @@
         <div class="screen hidden" id="screen-register">
             <div class="auth-container">
                 <div class="auth-header" style="margin-top: 0;">
-                    <i class="fas fa-user-plus"></i>
+                    <img src="https://i.ibb.co/wZxqW4Pz/file-000000006158821196093989ec40bf51.png" alt="Fontech Logo" class="logo-img-auth">
                     <h2>Create Account</h2>
                     <p>Join Fontech today</p>
                 </div>
@@ -380,7 +410,7 @@
             <header>
                 <div class="greeting"><h1 id="homeGreeting">Hi, User!</h1></div>
                 <div class="header-actions">
-                    <img src="https://i.pravatar.cc/150?img=11" alt="Profile" class="avatar" onclick="switchView('profile', document.querySelectorAll('.nav-item')[3])">
+                    <img src="https://i.ibb.co/wZxqW4Pz/file-000000006158821196093989ec40bf51.png" alt="Profile" class="logo-img-small" onclick="switchView('profile', document.querySelectorAll('.nav-item')[3])">
                     <button class="settings-btn" onclick="switchView('profile', document.querySelectorAll('.nav-item')[3])"><i class="fas fa-cog"></i></button>
                 </div>
             </header>
@@ -451,7 +481,7 @@
 
         <div class="view-container" id="view-profile">
             <div class="profile-header">
-                <img src="https://i.pravatar.cc/150?img=11" alt="Profile" id="profileAvatar">
+                <img src="https://i.ibb.co/wZxqW4Pz/file-000000006158821196093989ec40bf51.png" alt="Profile" class="logo-img">
                 <h2 id="profileName">Paul Smith</h2>
                 <p id="profileEmail">paul.smith@example.com</p>
             </div>
@@ -543,7 +573,8 @@
                     const ASSETS = [
                         '/', 
                         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-                        'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'
+                        'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
+                        'https://i.ibb.co/wZxqW4Pz/file-000000006158821196093989ec40bf51.png'
                     ];
                     self.addEventListener('install', (e) => {
                         e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)));
@@ -572,11 +603,11 @@
             background_color: "#4a3e9e",
             theme_color: "#4a3e9e",
             icons: [{
-                src: "https://i.pravatar.cc/192?img=11",
+                src: "https://i.ibb.co/wZxqW4Pz/file-000000006158821196093989ec40bf51.png",
                 sizes: "192x192",
                 type: "image/png"
             }, {
-                src: "https://i.pravatar.cc/512?img=11",
+                src: "https://i.ibb.co/wZxqW4Pz/file-000000006158821196093989ec40bf51.png",
                 sizes: "512x512",
                 type: "image/png"
             }]
